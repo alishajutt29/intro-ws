@@ -1,5 +1,13 @@
-<h1>Product#in_stock</h1>
+<h1><%= @product.name %> is back in stock</h1>
+
+<p>Hi,</p>
 
 <p>
-  <%= @greeting %>, find me in app/views/product_mailer/in_stock.html.erb
+  Good news — <strong><%= @product.name %></strong> is available again in our store.
+</p>
+
+<p><%= link_to "View product", product_url(@product) %></p>
+
+<p>
+  <%= link_to "Unsubscribe from these emails", unsubscribe_url(@subscriber.unsubscribe_token) %>
 </p>

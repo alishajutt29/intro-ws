@@ -1,0 +1,9 @@
+one:
+  name: Widget
+  category: one
+  inventory_count: 5
+
+two:
+  name: Gadget
+  category: two
+  inventory_count: 0

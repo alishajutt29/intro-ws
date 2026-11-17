@@ -15,7 +15,7 @@ class Product < ApplicationRecord
   end
 
   def notify_subscribers
-    subscribers.each do |subscriber|
+    subscribers.active.each do |subscriber|
       ProductMailer.with(
         product: self,
         subscriber: subscriber

@@ -1,3 +1,7 @@
-Product#in_stock
+Hi,
 
-<%= @greeting %>, find me in app/views/product_mailer/in_stock.text.erb
+Good news — <%= @product.name %> is available again in our store.
+
+View product: <%= product_url(@product) %>
+
+Unsubscribe from these emails: <%= unsubscribe_url(@subscriber.unsubscribe_token) %>
