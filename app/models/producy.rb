@@ -1,2 +1,0 @@
-class Producy < ApplicationRecord
-end

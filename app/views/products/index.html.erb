@@ -1,0 +1,55 @@
+<section class="hero">
+  <p class="eyebrow">WELCOME TO OUR STORE</p>
+  <h1>Find Your Perfect Product.</h1>
+  <p>Explore our collection and discover something you love.</p>
+  <%= link_to "Explore Products", "#products", class: "hero-button" %>
+</section>
+
+<section class="store-container" id="products">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">OUR COLLECTION</p>
+      <h2>All Products</h2>
+    </div>
+
+    <% if authenticated? %>
+      <%= link_to "+ Add Product", new_product_path, class: "add-button" %>
+    <% else %>
+      <%= link_to "Login", new_session_path, class: "add-button" %>
+    <% end %>
+  </div>
+
+  <div class="categories">
+    <%= link_to "All", products_path, class: "category-link" %>
+
+    <% @categories.each do |category| %>
+      <%= link_to category.name,
+          products_path(category_id: category.id),
+          class: "category-link" %>
+    <% end %>
+  </div>
+
+  <div class="product-grid">
+    <% @products.each do |product| %>
+      <article class="product-card">
+        <div class="product-image">
+          <span>PRODUCT</span>
+        </div>
+
+        <div class="product-info">
+          <p class="product-category">
+            <%= product.category&.name || "Uncategorized" %>
+          </p>
+
+          <h3><%= link_to product.name, product_path(product) %></h3>
+
+          <%= link_to "View Details →", product_path(product), class: "view-link" %>
+        </div>
+      </article>
+    <% end %>
+  </div>
+
+  <% if @products.empty? %>
+    <p class="empty-message">No products found.</p>
+  <% end %>
+</section>
