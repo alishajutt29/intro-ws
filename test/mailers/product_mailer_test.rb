@@ -3,14 +3,13 @@ require "test_helper"
 class ProductMailerTest < ActionMailer::TestCase
   test "in_stock" do
     mail = ProductMailer.with(
-      product: products(:one),
-      subscriber: subscribers(:one)
+      product: products(:tshirt),
+      subscriber: subscribers(:david)
     ).in_stock
 
-    assert_equal "Widget is back in stock", mail.subject
-    assert_equal [ subscribers(:one).email ], mail.to
+    assert_equal "In stock", mail.subject
+    assert_equal [ "david@example.org" ], mail.to
     assert_equal [ "from@example.com" ], mail.from
-    assert_match "Widget", mail.body.encoded
-    assert_match "Unsubscribe", mail.body.encoded
+    assert_match "Good news!", mail.body.encoded
   end
 end

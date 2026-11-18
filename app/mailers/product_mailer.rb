@@ -3,6 +3,6 @@ class ProductMailer < ApplicationMailer
     @product = params[:product]
     @subscriber = params[:subscriber]
 
-    mail to: @subscriber.email, subject: "#{@product.name} is back in stock"
+    mail to: @subscriber.email, subject: "In stock"
   end
 end

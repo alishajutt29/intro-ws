@@ -1,7 +1,9 @@
-Hi,
 
-Good news — <%= @product.name %> is available again in our store.
+Good news!
 
-View product: <%= product_url(@product) %>
+<%= @product.name %> is back in stock.
 
-Unsubscribe from these emails: <%= unsubscribe_url(@subscriber.unsubscribe_token) %>
+<%= product_url(@product) %>
+
+Unsubscribe:
+<%= unsubscribe_url(token: params[:subscriber].generate_token_for(:unsubscribe)) %>
